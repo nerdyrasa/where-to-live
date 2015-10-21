@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{%  extends 'bootstrap/base.html' %}
+{% import 'macros.html' as macros %}
+
+{% block title %}Weather Averages for {{ city }}{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">Weather</a>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
     <h1>{{ city }}</h1>
-    <table>
+    <h4>Min = {{ highlight['min'] }}</h4>
+    <h4>Max = {{ highlight['max'] }}</h4>
+    <table class="table table-hover">
         <tr>
             <th>Month</th>
             <th>Min</th>
             <th>Max</th>
         </tr>
-        {% for month in months %}
-        <tr>
-            <td>{{ month }}</td>
-            <td></td>
-            <td></td>
-        </tr>
+        {% for month, min, max in temp_data %}
+            {{  macros.weather_row(month, min, max, highlight['min'], highlight['max']) }}
         {%  endfor %}
 </table>
+    </div>
 
-</body>
-</html>
+{% endblock %}
