@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>{{ city }}</h1>
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Min</th>
+            <th>Max</th>
+        </tr>
+        {% for month in months %}
+        <tr>
+            <td>{{ month }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {%  endfor %}
+</table>
+
+</body>
+</html>
