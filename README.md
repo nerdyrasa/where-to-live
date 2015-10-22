@@ -1,6 +1,6 @@
 ## Overview ##
 
-This repository contains the source for a web app, built with Python microframework Flask and Bootstrap since I am stylistically challenged. The idea of the web app comes from my desire to relocate--I'm simply tired of Wisconsin winters. Therefore, I'm looking very closely at climate. There are other factors like walkability, affordability, and number of coffee houses, that I will incorporate in future updates
+This repository contains the source for a web app, built with Python microframework Flask, Bootstrap and WTForms. The idea of the web app comes from my desire to relocate--I'm simply tired of Wisconsin winters. Therefore, I'm looking very closely at climate. There are other factors like walkability, affordability, and number of coffee houses, that I will incorporate in future updates
 
 ## Requirements ##
 I developed this project using a virtual environment in PyCharm using Python 3.4. I use the following packages: 
@@ -11,11 +11,12 @@ MarkupSafe=0.23
 Werkzeug=0.10.4
 dominate=2.1.16
 itsdangerous=0.24 
+WTForms=2.0.2
 
 ## Running the app ##
 Make sure you have all the requirements installed and use python 3.4:
 Run `python where_to_live.py`
-In the browser type `localhost:5000/city/Raleigh`
+In the browser type `localhost:5000`
 
 
 ## Attribution ##

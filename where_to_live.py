@@ -1,15 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask.ext.bootstrap import Bootstrap
+from flask.ext.wtf import Form
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import Required, Length
+
 from load_temp_data import read_temp_csv
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'development'
 bootstrap = Bootstrap(app)
 
+class NameForm(Form):
+    city = SelectField('city', choices=[('Raleigh', 'Raleigh, NC'),('Atlanta', 'Atlanta, GA')])
+    submit = SubmitField('Submit')
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET','POST'])
 def index():
-    return render_template('index.html')
+
+    city = None
+    form = NameForm()
+    if form.validate_on_submit():
+        city = form.city.data
+        if (city):
+            return display_avg_temps(city)
+
+    return render_template('index.html', form=form, city=city)
 
 
 @app.route('/city/<city>')
