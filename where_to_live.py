@@ -29,7 +29,7 @@ def index():
 
 @app.route('/city/<city>')
 def display_avg_temps(city):
-    temp_data = read_temp_csv()
+    temp_data = read_temp_csv(city)
     highlight = {'min': 40, 'max': 80}
     return render_template('avg_temps.html', city=city, temp_data=temp_data, highlight=highlight)
 
